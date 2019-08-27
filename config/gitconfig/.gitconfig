@@ -1,0 +1,12 @@
+[user]
+	name = Sean D'Souza
+	email = sdammobubbles@gmail.com
+[core]
+	editor = nvim
+[color]
+	ui = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

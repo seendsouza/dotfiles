@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/home/seen/Documents/Coding/Hackathons/HT6/Autosurance.bfg-report'
+let g:netrw_dirhist_2='/home/seen/Documents/Coding/Hackathons/HT6/Autosurance.bfg-report/2019-08-26'
+let g:netrw_dirhist_3='/home/seen/Documents/Coding/Hackathons/HT6/Autosurance.bfg-report/2019-08-26/17-24-39'
+let g:netrw_dirhist_4='/home/seen/Documents/Coding/Hackathons/HT6/Autosurance.bfg-report/2019-08-26/17-24-39/protected-dirt'

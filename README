@@ -1,0 +1,10 @@
+# Dotfiles
+
+![](./Aug262019::221556.png)
+
+In use by two of my Arch Linux machines.
+
+Run `symlink.sh` to symlink all files to their appropriate config files.
+
+Alternatively, symlink them individually by running `stow config/<folder-name>`
+
