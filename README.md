@@ -1,6 +1,6 @@
 # Dotfiles
 
-![](./Aug262019::221556.png)
+![Screenshot](https://raw.githubusercontent.com/seendsouza/dotfiles/master/screenshot.png)
 
 In use by two of my Arch Linux machines.
 
