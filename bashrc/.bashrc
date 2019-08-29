@@ -2,13 +2,16 @@
 # ~/.bashrc
 #
 
-# If not running interactively, don't do anything
 # set -x
+# If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+PS1='[\u@\h \W]\$ '
+EDITOR='nvim'
 alias ls='ls --color=auto'
 alias firefox='firefox-developer-edition'
-PS1='[\u@\h \W]\$ '
+alias vi='nvim'
+alias vim='nvim'
 
 # Custom aliases
 
@@ -16,12 +19,10 @@ PS1='[\u@\h \W]\$ '
 alias dscrot='scrot ~/Pictures/scrot/%b%d%Y::%H%M%S.png'
 alias dscrot2='scrot ~/Pictures/scrot/%b%d%Y::%H%M%S.png -s'
 
-export PATH=~/.local/bin:$PATH:$HOME/.local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:$HOME/.gem/ruby/2.6.0/bin:$(ruby -e 'print Gem.user_dir')/bin:$(pyenv root)/shims:/usr/local/bin:/usr/bin:/bin:~/Documents/scripts:$HOME/.pub-cache/bin
-export PYTHONPATH="${PYTHONPATH}:$HOME/.local/bin:$HOME/Downloads/git/sphinx-to-github/sphinxtogithub"
+export PATH=~/.local/bin:$PATH:$HOME/.local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
 alias python3="python3.6"
 
 
-eval "$(pyenv init -)"
 # save path on cd
 function cd {
     builtin cd $@
