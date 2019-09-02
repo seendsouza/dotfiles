@@ -19,7 +19,7 @@ alias vim='nvim'
 alias dscrot='scrot ~/Pictures/scrot/%b%d%Y::%H%M%S.png'
 alias dscrot2='scrot ~/Pictures/scrot/%b%d%Y::%H%M%S.png -s'
 
-export PATH=~/.local/bin:$PATH:$HOME/.local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
+export PATH=~/.local/bin:$PATH:$HOME/.local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:$HOME/bin
 alias python3="python3.6"
 
 
