@@ -22,7 +22,7 @@ line-size = 3
 line-color = #f00
 
 padding-left = 0
-padding-right = 0
+padding-right = 1.5
 
 module-margin-left = 1.5
 module-margin-right = 1.5
@@ -32,7 +32,7 @@ font-1 = FontAwesome:pixelsize=10;1
 
 modules-left = i3 
 modules-center = xwindow
-modules-right = filesystem volume date battery memory
+modules-right = backlight volume date battery memory
 
 tray-position = right
 tray-padding = 2
@@ -147,6 +147,35 @@ bar-fill-foreground = #9f78e1
 bar-empty = ─
 bar-empty-font = 2
 bar-empty-foreground = ${colors.foreground-alt}
+
+[module/backlight]
+type = internal/backlight
+
+; Use the following command to list available cards:
+; $ ls -1 /sys/class/backlight/
+card = intel_backlight
+; Available tags:
+;   <label> (default)
+;   <ramp>
+;   <bar>
+format = <label> <bar>
+
+; Available tokens:
+;   %percentage% (default)
+label = BRI
+
+; Only applies if <ramp> is used
+ramp-0 = 🌕
+ramp-1 = 🌔
+ramp-2 = 🌓
+ramp-3 = 🌒
+ramp-4 = 🌑
+
+; Only applies if <bar> is used
+bar-width = 10
+bar-indicator = |
+bar-fill = ─
+bar-empty = ─
 
 
 [module/cpu]
