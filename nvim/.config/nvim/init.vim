@@ -4,7 +4,7 @@ set nocompatible
 
 set encoding=utf8
 set complete+=kspell
-
+"
 set number
 set ruler
 set tabstop=4
@@ -30,6 +30,7 @@ Plug 'google/vim-maktaba'
 Plug 'google/vim-codefmt'
 Plug 'google/vim-glaive'
 Plug 'airblade/vim-gitgutter'
+Plug 'ianding1/leetcode.vim'
 call plug#end()
 
 " the glaive#Install() should go after the "call vundle#end()"
@@ -38,7 +39,7 @@ call glaive#Install()
 Glaive codefmt plugin[mappings]
 Glaive codefmt google_java_executable="java -jar /path/to/google-java-format-VERSION-all-deps.jar"
 
-let g:python3_host_prog = '/home/seen/.pyenv/versions/3.6.6/bin/python'
+let g:python3_host_prog='/usr/bin/python3'
 let g:vimwiki_list = [{'path': '~/Documents/notes', 'syntax': 'markdown', 'ext': '.md'}]
 let dart_style_guide = 2
 let dart_format_on_save = 1
@@ -46,6 +47,8 @@ let form_enhanced_color = 1
 let base16colorspace=256  " Access colors present in 256 colorspace
 let g:gitgutter_max_signs = 500  " default value
 let g:gitgutter_async=0
+let g:leetcode_solution_filetype='python3'
+let g:leetcode_username='seendsouza'
 
 autocmd BufRead,BufNewFile *.md setlocal spell
 autocmd BufRead,BufNewFile *.md set filetype=markdown
@@ -65,3 +68,7 @@ map <silent> <F7> "<Esc>:silent setlocal spell! spelllang=en<CR>"
 map <silent> <F6> "<Esc>:silent setlocal spell! spelllang=fr<CR>"
 map <C-K> :pyf ~/.config/nvim/clang-format.py<cr>
 imap <C-K> <c-o>:pyf ~/.config/nvim/clang-format.py<cr>
+nnoremap <leader>ll :LeetCodeList<cr>
+nnoremap <leader>lt :LeetCodeTest<cr>
+nnoremap <leader>ls :LeetCodeSubmit<cr>
+nnoremap <leader>li :LeetCodeSignIn<cr>

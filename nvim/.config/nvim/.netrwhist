@@ -1,4 +1,12 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
-let g:netrw_dirhist_1='/home/seen/dotfiles/polybar/.config/polybar'
-let g:netrw_dirhist_2='/home/seen/Documents/Coding/Robotics/vscout/vscout-cli/lib/src/views/cli/commands/init'
+let g:netrw_dirhistcnt =2
+let g:netrw_dirhist_2='/home/seen/Documents/resume/resume'
+let g:netrw_dirhist_1='/home/seen/Documents/code/school/iti1120/labs/lab7-students/lab7-students'
+let g:netrw_dirhist_0='/home/seen/Documents/code/js/mern-stack/routes/api'
+let g:netrw_dirhist_9='/usr/share/dict'
+let g:netrw_dirhist_8='/home/seen/Documents/code/school/seg2900/life_support/.git'
+let g:netrw_dirhist_7='/home/seen/Documents/code/school/seg2900/life_support/.git/lfs'
+let g:netrw_dirhist_6='/home/seen/Documents/code/school/seg2900/life_support/.git'
+let g:netrw_dirhist_5='/home/seen/Documents/code/js/seendsouza.github.io/.git'
+let g:netrw_dirhist_4='/home/seen/Documents/code/school/iti1120/a1_300113232'
+let g:netrw_dirhist_3='/home/seen/Documents/code/hackathons/board-to-latex/client/src/components'
