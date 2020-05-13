@@ -127,11 +127,11 @@ augroup autoformat_settings
   autocmd FileType dart AutoFormatBuffer dartfmt
   autocmd FileType go AutoFormatBuffer gofmt
   autocmd FileType gn AutoFormatBuffer gn
-  autocmd FileType html,css,json AutoFormatBuffer js-beautify
+  " autocmd FileType html,css,json AutoFormatBuffer js-beautify
   autocmd FileType java AutoFormatBuffer google-java-format
   autocmd FileType python AutoFormatBuffer autopep8
   autocmd FileType rust AutoFormatBuffer rustfmt
-  autocmd FileType javascript,vue AutoFormatBuffer prettier
+  autocmd FileType html,css,json,javascript,vue AutoFormatBuffer prettier
   autocmd FileType clojure AutoFormatBuffer zprint
 augroup END
 
