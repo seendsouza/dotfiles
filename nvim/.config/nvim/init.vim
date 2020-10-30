@@ -3,7 +3,7 @@
 set encoding=utf8
 set complete+=kspell
 "
-set relativenumber
+set number relativenumber
 set list
 set ruler
 set smarttab
@@ -43,6 +43,7 @@ Plug 'guns/vim-clojure-highlight'
 Plug 'guns/vim-sexp'
 
 Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'junegunn/vim-easy-align'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -101,10 +102,28 @@ let g:tex_conceal='abdmg'
 
 autocmd BufRead,BufNewFile *.md setlocal spell
 autocmd BufRead,BufNewFile *.md set filetype=markdown
+
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-nnoremap <leader>g :<C-u>Denite grep:. -no-empty<CR>
-nnoremap <leader>j :<C-u>DeniteCursorWord grep:.<CR>
+" Denite Settings
+call denite#custom#var('file/rec', 'command', ['rg', '--files', '--glob' ])
+call denite#custom#option('default', 'prompt', 'λ')
+call denite#custom#var('grep', 'command', ['rg'])
+call denite#custom#var('grep', 'default_opts', ['--hidden', '--vimgrep', '--heading', '-S'])
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
+call denite#custom#var('grep', 'separator', ['--'])
+call denite#custom#var('grep', 'final_opts', [])
+call denite#custom#source('file_rec', 'sorters', ['sorter_sublime'])
+call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
+      \ [ '.git/', '.ropeproject/', '__pycache__/*', '*.pyc', 'node_modules/',
+      \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/', '*.png'])
+
+
+nmap <LEADER>p :Denite -start-filter file/rec<CR>
+nmap <LEADER>b :Denite buffer<CR>
+" nnoremap \ :Denite grep<CR>
+
 autocmd FileType denite call s:denite_my_settings()
 function! s:denite_my_settings() abort
   nnoremap <silent><buffer><expr> <CR>
@@ -121,6 +140,9 @@ function! s:denite_my_settings() abort
   \ denite#do_map('toggle_select').'j'
 endfunction
 
+
+
+" Autoformat Settings
 augroup autoformat_settings
   autocmd FileType bzl AutoFormatBuffer buildifier
   autocmd FileType c,cpp,proto AutoFormatBuffer clang-format
@@ -135,17 +157,26 @@ augroup autoformat_settings
   autocmd FileType clojure AutoFormatBuffer zprint
 augroup END
 
-" Activation based on file type
+" Rainbow Lisp Settings
 augroup rainbow_lisp
   autocmd!
   autocmd FileType lisp,clojure,scheme RainbowParentheses
 augroup END
 
+
+" EasyAlign Settings
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
+" Spell Settings
 map <silent> <F7> "<Esc>:silent setlocal spell! spelllang=en<CR>"
 map <silent> <F6> "<Esc>:silent setlocal spell! spelllang=fr<CR>"
+" NERDTree Settings
 map <C-n> :NERDTreeToggle<CR>
+" Escape command line mode
 cnoremap kj <C-C>
 cnoremap jk <C-C>
+" Time
 nmap <F3> i<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
 imap <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
+" Ctags
 command! MakeTags !ctags -R .
