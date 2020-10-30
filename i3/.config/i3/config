@@ -163,8 +163,14 @@ bindcode 107 exec ~/bin/dscrot.sh
 bindcode 164 exec ~/.config/i3/i3lock.sh
 bindcode 179 exec alsamixer
 bindcode 235 exec ~/bin/escrot.sh
+bindcode 232 exec xbacklight -dec 5
+bindcode 233 exec xbacklight -inc 5
+bindcode 121 exec pamixer -t
+bindcode 122 exec pamixer -d 5
+bindcode 123 exec pamixer -i 5
 
 # Running programs
+exec_always --no-startup-id ~/.config/i3/xrandr.sh &
 exec_always --no-startup-id ~/.config/i3/compton.sh &
 exec_always --no-startup-id ~/.config/i3/feh.sh &
 exec_always --no-startup-id ~/.config/i3/nm-applet.sh & 
@@ -172,7 +178,8 @@ exec_always --no-startup-id ~/.config/i3/redshift.sh &
 exec_always --no-startup-id ~/.config/i3/pulseaudio.sh &
 exec_always --no-startup-id ~/.config/i3/polybar.sh &
 exec_always --no-startup -id ~/.config/i3/syncthing.sh &
-exec_always --no-startup -id ~/.config/i3/copyq.sh
+exec_always --no-startup -id ~/.config/i3/copyq.sh &
+exec_always --no-startup -id ~/.config/i3/autostart.sh
 
 
 # window border settings
