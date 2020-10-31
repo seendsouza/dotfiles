@@ -34,6 +34,7 @@ let g:vimtex_quickfix_mode=0
 let g:tex_conceal='abdmg'
 
 
+lua require('plugins')
 autocmd BufWritePost plugins.lua PackerCompile
 
 " the glaive#Install() should go after the "call vundle#end()"
