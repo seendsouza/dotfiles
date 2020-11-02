@@ -5,20 +5,22 @@ syntax on
 colorscheme molokai
 
 
-set encoding=utf8
+set clipboard=unnamedplus
 set complete+=kspell
-set number relativenumber
-set list
-set ruler
-set smarttab
+set completeopt=menuone,noinsert,noselect
+set conceallevel=1
+set cursorline
+set encoding=utf8
 set expandtab 
 set laststatus=2
-set cursorline
-set conceallevel=1
+set list
+set number relativenumber
 set path+=**
-set wildmenu
-set clipboard=unnamedplus
+set ruler
+set shortmess+=c
+set smarttab
 set termguicolors
+set wildmenu
 
 
 hi Normal guibg=NONE ctermbg=NONE
