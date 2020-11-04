@@ -10,7 +10,7 @@ local on_attach_hook = function(client)
     require'lsp-status'.on_attach(client)
 
     local set_keymap = vim.api.nvim_buf_set_keymap
-    local opts = {noremap= true, silent = true}
+    local opts = {noremap = true, silent = true}
 
     set_keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
     set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
@@ -44,7 +44,7 @@ end
 
 local default_config_servers = {
     'bashls', 'clangd', 'clojure_lsp', 'cmake', 'cssls', 'dockerls', 'gopls',
-    'hls', 'html', 'jdtls', 'jedi_language_server', 'jsonls', 'metals',
+    'hls', 'html', 'jdtls', 'jedi_language_server', 'jsonls', 'metals', 'nimls',
     'rust_analyzer', 'solargraph', 'sqlls', 'sumneko_lua', 'terraformls',
     'texlab', 'tsserver', 'vimls', 'vuels', 'yamlls'
 }
