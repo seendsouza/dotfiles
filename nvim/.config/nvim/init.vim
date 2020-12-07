@@ -42,6 +42,7 @@ autocmd BufWritePost plugins.lua PackerCompile
 autocmd BufRead,BufNewFile *.md setlocal spell
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 
+au BufNewFile,BufRead *.ejs set filetype=html
 
 " Autoformat Settings
 augroup autoformat_settings
@@ -54,7 +55,7 @@ augroup autoformat_settings
   autocmd FileType java AutoFormatBuffer google-java-format
   autocmd FileType python AutoFormatBuffer autopep8
   autocmd FileType rust AutoFormatBuffer rustfmt
-  autocmd FileType html,css,json,javascript,vue AutoFormatBuffer prettier
+  autocmd FileType html,css,json,javascript,vue,javascriptreact AutoFormatBuffer prettier
   autocmd FileType clojure AutoFormatBuffer zprint
 augroup END
 
