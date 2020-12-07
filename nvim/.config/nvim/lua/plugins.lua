@@ -8,13 +8,11 @@ local plugins = {
     {'junegunn/rainbow_parentheses.vim'}, {'junegunn/vim-easy-align'},
     {'lervag/vimtex'}, {'liuchengxu/vista.vim', cmd = {'Vista'}},
     {'liuchengxu/vim-which-key', config = 'require [[config/which-key]]'},
-    {'google/vim-maktaba'}, {'google/vim-codefmt'}, {'google/vim-glaive'}, {
+    {'google/vim-codefmt', requires = {'google/vim-maktaba', 'google/vim-glaive'}, config = 'require [[config/codefmt]]'},
+    {
         'neovim/nvim-lspconfig',
         config = 'require [[config/lsp]]',
-        requires = {
-            'nvim-lua/completion-nvim', 'nvim-lua/diagnostic-nvim',
-            'nvim-lua/lsp-status.nvim'
-        }
+        requires = {'nvim-lua/completion-nvim', 'nvim-lua/lsp-status.nvim'}
     },
     {'norcalli/nvim-colorizer.lua', config = 'require [[colorizer]].setup()'},
     {
