@@ -7,5 +7,5 @@ killall -q feh
 while pgrep -x feh >/dev/null; do sleep 1; done
 
 # Launch feh
-feh --bg-scale ~/Pictures/bg.png
+feh --bg-scale ~/Pictures/bg.jpg
 

@@ -1,1 +1,1 @@
-scrot ~/Pictures/scrot/%b%d%Y::%H%M%S.png -s
+scrot ~/Pictures/scrot/%Y%m%d::%H%M%S.png -s

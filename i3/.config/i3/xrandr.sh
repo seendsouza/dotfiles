@@ -7,5 +7,3 @@ if xrandr | grep "$extern disconnected"; then
 else
     xrandr --output "$intern" --off --output "$extern" --auto
 fi
-~/.config/i3/polybar.sh
-~/.config/i3/feh.sh

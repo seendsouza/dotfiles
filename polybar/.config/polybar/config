@@ -27,12 +27,13 @@ padding-right = 1.5
 module-margin-left = 1.5
 module-margin-right = 1.5
 
-font-0 = Hasklig:pixelsize=10;0
-font-1 = FontAwesome:pixelsize=10;1
+font-0 = Hasklig:size=10;0
+font-1 = FontAwesome:size=9;0
+font-2 = NotoSansCJKsc-Regular:size=10;0
 
 modules-left = i3 
 modules-center = xwindow
-modules-right = backlight volume date battery memory
+modules-right = pulseaudio date battery memory cpu
 
 tray-position = right
 tray-padding = 2
@@ -42,42 +43,6 @@ wm-restack = i3
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
-
-
-[bar/left]
-monitor = ${env:MONITOR:VGA-1}
-width = 100%
-height = 27
-fixed-center = false
-
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-line-size = 3
-line-color = #f00
-
-padding-left = 0
-padding-right = 0
-
-module-margin-left = 1.5
-module-margin-right = 1.5
-
-font-0 = Hasklig:pixelsize=10;0
-font-1 = FontAwesome:pixelsize=10;1
-
-modules-left = i3 
-modules-center = xwindow
-modules-right = date 
-
-tray-position = right
-tray-padding = 2
-tray-background = #01060d
-
-wm-restack = i3
-
-scroll-up = i3wm-wsnext
-scroll-down = i3wm-wsprev
-
 
 [module/xwindow]
 type = internal/xwindow
@@ -201,7 +166,7 @@ type = internal/date
 interval = 1
 
 date = " %Y-%m-%d"
-date-alt =
+date-alt = " %Y-%m-%d"
 
 time = %H:%M:%S
 time-alt = %I:%M %p
@@ -213,34 +178,29 @@ format-underline = #0a6cf5
 label = %date% %time%
 
 
-[module/volume]
-type = internal/volume
+[module/pulseaudio]
+type = internal/pulseaudio
 
-format-volume = <label-volume> <bar-volume>
-label-volume = VOL
-label-volume-foreground = ${root.foreground}
+; Sink to be used, if it exists (find using `pacmd list-sinks`, name field)
+; If not, uses default sink
+sink = alsa_output.pci-0000_12_00.3.analog-stereo
 
-format-muted-prefix = ""
-format-muted-foreground = ${colors.foreground-alt}
-label-muted = sound muted
+; Use PA_VOLUME_UI_MAX (~153%) if true, or PA_VOLUME_NORM (100%) if false
+; Default: true
+use-ui-max = true
 
-bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
+; Interval for volume increase/decrease (in percent points)
+; Default: 5
+interval = 5
 
+format-volume = <ramp-volume> <label-volume>
+
+label-muted =  muted
+label-muted-foreground = #666
+
+; Only applies if <ramp-volume> is used
+ramp-volume-0 = 
+ramp-volume-1 = 
 
 [module/battery]
 type = internal/battery
@@ -265,14 +225,14 @@ ramp-capacity-3 = 
 ramp-capacity-4 = 
 ramp-capacity-foreground = ${colors.foreground-alt}
 
-; animation-charging-0 = 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
+animation-charging-0 = 
+; animation-charging-0 = 
+; animation-charging-1 = 
+; animation-charging-2 = 
+; animation-charging-3 = 
+; animation-charging-4 = 
 animation-charging-foreground = ${colors.foreground-alt}
-animation-charging-framerate = 750
+; animation-charging-framerate = 750
 
 
 [settings]
