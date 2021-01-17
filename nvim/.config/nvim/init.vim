@@ -43,6 +43,8 @@ autocmd BufRead,BufNewFile *.md setlocal spell
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 
 au BufNewFile,BufRead *.ejs set filetype=html
+au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 " Autoformat Settings
 augroup autoformat_settings
@@ -55,7 +57,7 @@ augroup autoformat_settings
   autocmd FileType java AutoFormatBuffer google-java-format
   autocmd FileType python AutoFormatBuffer autopep8
   autocmd FileType rust AutoFormatBuffer rustfmt
-  autocmd FileType html,css,json,javascript,vue,javascriptreact AutoFormatBuffer prettier
+  autocmd FileType html,css,json,javascript,vue,javascriptreact,typescriptreact AutoFormatBuffer prettier
   autocmd FileType clojure AutoFormatBuffer zprint
 augroup END
 

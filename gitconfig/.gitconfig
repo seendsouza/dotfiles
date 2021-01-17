@@ -1,7 +1,13 @@
 [user]
 	name = Sean D'Souza
 	email = sdammobubbles@gmail.com
+	signingkey = B6257AEA3BF6A649
 [core]
 	editor = nvim
 [color]
 	ui = true
+[commit]
+	gpgsign = true
+
+[pull]
+        ff = only
