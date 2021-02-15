@@ -12,7 +12,8 @@ set $up k
 set $right l
 # Your preferred terminl emulator
 set $term kitty
-set $menu bemenu-run --fn $uifont -b -p "▶" --tf "$prompt" --hf "$highlight" --sf "$highlight" --scf "$highlight" | xargs swaymsg exec
+set $menu rofi -show  drun -font "Inter 10" -run-shell-command '{terminal} -e \\"{cmd}; read -n 1 -s\\"'
+# set $menu bemenu-run --fn $uifont -b -p "▶" --tf "$prompt" --hf "$highlight" --sf "$highlight" --scf "$highlight" | xargs swaymsg exec
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
