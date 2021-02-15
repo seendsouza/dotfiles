@@ -7,4 +7,4 @@ killall -q nm-applet
 while pgrep -x nm-applet >/dev/null; do sleep 1; done
 
 # Launch nm-applet
-nm-applet --sm-disable
+nm-applet --sm-disable --indicator
