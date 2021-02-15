@@ -5,7 +5,7 @@ syntax on
 colorscheme molokai
 
 
-set clipboard=unnamedplus
+"set clipboard=unnamedplus
 set complete+=kspell
 set completeopt=menuone,noinsert,noselect
 set conceallevel=1
@@ -45,6 +45,56 @@ autocmd BufRead,BufNewFile *.md set filetype=markdown
 au BufNewFile,BufRead *.ejs set filetype=html
 au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
+function CopyDiffToBuffer(input, output, bufname)
+  let min_len = min([len(a:input), len(a:output)])
+  for i in range(0, min_len - 1)
+    let output_line = a:output[i]
+    let input_line  = a:input[i]
+    if input_line != output_line
+      call setline(i + 1, output_line) " lines calculate from 1, items - from 0
+    end
+  endfor
+  if len(a:input) != len(a:output)
+    if min_len == len(a:output) " remove all extra lines from input
+      call deletebufline(a:bufname, min_len + 1, "$")
+    else " append all extra lines from output
+      call append("$", a:output[min_len:])
+    end
+  end
+
+  redraw!
+endfunction
+
+function LuaFormat()
+  let input = getline(1, "$")
+  let error_file = tempname()
+  let flags = " -i "
+  let config_file = findfile(".lua-format", ".;")
+  if empty(config_file) == 0
+    let flags = flags . " -c " . config_file
+  end
+  let output_str=system("lua-format " . flags . " 2> " . error_file, input)
+  if empty(output_str) == 0
+    let output = split(output_str, "\n")
+    call CopyDiffToBuffer(input, output, bufname("%"))
+    lexpr ""
+    lwindow
+  else
+    let errors = readfile(error_file)
+    let source_file = bufname("%")
+    call insert(errors, source_file)
+
+    set efm=%+P%f,line\ %l:%c\ %m,%-Q
+    lexpr errors
+    lwindow 5
+  end
+  call delete(error_file)
+endfunction
+
+
+autocmd FileType lua nnoremap <buffer> <c-k> :call LuaFormat()<cr>
+autocmd BufWrite *.lua call LuaFormat()
 
 " Autoformat Settings
 augroup autoformat_settings
