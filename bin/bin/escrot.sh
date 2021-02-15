@@ -1,1 +1,2 @@
-scrot -s ~/Pictures/scrot/%Y%m%d::%H%M%S.png -e 'xclip -selection c -t image/png < $f'
+FILENAME=$(date '+%Y%m%d::%H%M%S.png')
+slurp | grim -g - - | tee ~/Pictures/scrot/$FILENAME | wl-copy
