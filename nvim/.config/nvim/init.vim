@@ -5,7 +5,7 @@ syntax on
 colorscheme molokai
 
 
-"set clipboard=unnamedplus
+set clipboard=unnamedplus
 set complete+=kspell
 set completeopt=menuone,noinsert,noselect
 set conceallevel=1
