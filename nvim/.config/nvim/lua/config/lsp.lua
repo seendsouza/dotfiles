@@ -58,14 +58,20 @@ local on_attach = function(client, bufnr)
     if client.name == 'efm' and
         client.server_capabilities.documentFormattingProvider then
         set_keymap(bufnr, 'n', '<leader>f',
-                   '<cmd>vim.lsp.buf.formatting_seq_sync(nil, 1000, ["efm"])<CR>',
+                   '<cmd>lua vim.lsp.buf.format {timeout_ms = 500, filter = function(c) return c.name == "efm" end}<CR>',
                    opts)
-        vim.api.nvim_exec([[
-            augroup formatting
-                autocmd!
-                autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync(nil, 500, {"efm"})
-            augroup END
-        ]], true)
+        vim.api.nvim_create_augroup('formatting', {clear = true})
+        vim.api.nvim_create_autocmd({"BufWritePre"}, {
+            group = 'formatting',
+            callback = function()
+                vim.lsp.buf.format {
+                    timeout_ms = 500,
+                    filter = function(c)
+                        return c.name == "efm"
+                    end
+                }
+            end
+        })
     end
 end
 
