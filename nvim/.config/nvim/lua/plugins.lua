@@ -6,12 +6,10 @@ local plugins = {
         "hrsh7th/nvim-cmp",
         requires = {
             "hrsh7th/cmp-buffer", "hrsh7th/cmp-nvim-lsp",
-            'quangnguyen30192/cmp-nvim-ultisnips', 'hrsh7th/cmp-nvim-lua',
-            'octaltree/cmp-look', 'hrsh7th/cmp-path', 'hrsh7th/cmp-calc',
-            'f3fora/cmp-spell', 'hrsh7th/cmp-emoji'
+            'hrsh7th/cmp-nvim-lua', 'octaltree/cmp-look', 'hrsh7th/cmp-path',
+            'hrsh7th/cmp-calc', 'f3fora/cmp-spell', 'hrsh7th/cmp-emoji'
         }
-    },
-    {'jreybert/vimagit', cmd = {'Magit'}},
+    }, {'jreybert/vimagit', cmd = {'Magit'}},
     {'junegunn/goyo.vim', cmd = {'Goyo'}, requires = {'junegunn/limelight.vim'}},
     {'junegunn/rainbow_parentheses.vim'}, {'junegunn/vim-easy-align'},
     {'lervag/vimtex'}, {'liuchengxu/vista.vim', cmd = {'Vista'}},
@@ -27,13 +25,10 @@ local plugins = {
         'nvim-lua/telescope.nvim',
         config = 'require [[config/telescope]]',
         requires = {'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim'}
-    },
-    {
+    }, {
         'nvim-treesitter/nvim-treesitter',
         config = 'require [[config/treesitter]]',
-        requires = {'p00f/nvim-ts-rainbow',
-                    'romgrk/nvim-treesitter-context'}
-
+        requires = {'p00f/nvim-ts-rainbow', 'romgrk/nvim-treesitter-context'}
     }, {'tpope/vim-commentary'}, {'tpope/vim-repeat'}, {
         'tpope/vim-sexp-mappings-for-regular-people',
         ft = {'clojure', 'scheme', 'racket', 'lisp'},
@@ -42,8 +37,10 @@ local plugins = {
         }
     }, {'tpope/vim-speeddating'}, {'tpope/vim-surround'},
     {'wbthomason/packer.nvim', opt = true},
-    {'williamboman/mason.nvim', config = 'require [[config/mason]]'},
-    {'williamboman/mason-lspconfig.nvim', config = 'require [[config/mason_lspconfig]]'}
+    {'williamboman/mason.nvim', config = 'require [[config/mason]]'}, {
+        'williamboman/mason-lspconfig.nvim',
+        config = 'require [[config/mason_lspconfig]]'
+    }
 }
 
 return packer.startup(function()

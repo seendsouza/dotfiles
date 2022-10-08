@@ -42,6 +42,10 @@ autocmd BufWritePost plugins.lua PackerCompile
 autocmd BufRead,BufNewFile *.md setlocal spell
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 
+autocmd BufRead,BufNewFile *.cls set filetype=tex
+
+autocmd BufNewFile,BufRead *.bnf set filetype=bnf
+
 au BufNewFile,BufRead *.ejs set filetype=html
 au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
@@ -97,19 +101,19 @@ autocmd FileType lua nnoremap <buffer> <c-k> :call LuaFormat()<cr>
 autocmd BufWrite *.lua call LuaFormat()
 
 " Autoformat Settings
-augroup autoformat_settings
-  autocmd FileType bzl AutoFormatBuffer buildifier
-  autocmd FileType c,cpp,proto AutoFormatBuffer clang-format
-  autocmd FileType dart AutoFormatBuffer dartfmt
-  autocmd FileType go AutoFormatBuffer gofmt
-  autocmd FileType gn AutoFormatBuffer gn
-  " autocmd FileType html,css,json AutoFormatBuffer js-beautify
-  autocmd FileType java AutoFormatBuffer google-java-format
-  autocmd FileType python AutoFormatBuffer autopep8
-  autocmd FileType rust AutoFormatBuffer rustfmt
-  autocmd FileType html,css,json,javascript,vue,javascriptreact,typescriptreact AutoFormatBuffer prettier
-  autocmd FileType clojure AutoFormatBuffer zprint
-augroup END
+" augroup autoformat_settings
+"   autocmd FileType bzl AutoFormatBuffer buildifier
+"   autocmd FileType c,cpp,proto AutoFormatBuffer clang-format
+"   autocmd FileType dart AutoFormatBuffer dartfmt
+"   autocmd FileType go AutoFormatBuffer gofmt
+"   autocmd FileType gn AutoFormatBuffer gn
+"   " autocmd FileType html,css,json AutoFormatBuffer js-beautify
+"   autocmd FileType java AutoFormatBuffer google-java-format
+"   autocmd FileType python AutoFormatBuffer autopep8
+"   autocmd FileType rust AutoFormatBuffer rustfmt
+"   autocmd FileType html,css,json,javascript,typescript,vue,javascriptreact,typescriptreact AutoFormatBuffer prettier
+"   autocmd FileType clojure AutoFormatBuffer zprint
+" augroup END
 
 " Rainbow Lisp Settings
 augroup rainbow_lisp
