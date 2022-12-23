@@ -20,6 +20,7 @@ local plugins = {
     {'liuchengxu/vim-which-key', config = 'require [[config/which-key]]'},
     {'lukas-reineke/indent-blankline.nvim'},
     {'j-hui/fidget.nvim', config = 'require [[config/fidget]]'},
+    {'jose-elias-alvarez/null-ls.nvim'},
     {'kyazdani42/nvim-tree.lua', requires = {'kyazdani42/nvim-web-devicons'}},
     {
         'neovim/nvim-lspconfig',
