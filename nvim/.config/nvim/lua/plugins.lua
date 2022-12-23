@@ -9,11 +9,17 @@ local plugins = {
             'hrsh7th/cmp-nvim-lua', 'octaltree/cmp-look', 'hrsh7th/cmp-path',
             'hrsh7th/cmp-calc', 'f3fora/cmp-spell', 'hrsh7th/cmp-emoji'
         }
-    }, {'jreybert/vimagit', cmd = {'Magit'}},
+    }, {
+        'iamcco/markdown-preview.nvim',
+        run = function() vim.fn["mkdp#util#install"]() end
+    },
     {'junegunn/goyo.vim', cmd = {'Goyo'}, requires = {'junegunn/limelight.vim'}},
     {'junegunn/rainbow_parentheses.vim'}, {'junegunn/vim-easy-align'},
-    {'lervag/vimtex'}, {'liuchengxu/vista.vim', cmd = {'Vista'}},
+    {'lervag/vimtex'},
+    {'lewis6991/gitsigns.nvim', config = 'require [[config/gitsigns]]'},
     {'liuchengxu/vim-which-key', config = 'require [[config/which-key]]'},
+    {'lukas-reineke/indent-blankline.nvim'},
+    {'j-hui/fidget.nvim', config = 'require [[config/fidget]]'},
     {'kyazdani42/nvim-tree.lua', requires = {'kyazdani42/nvim-web-devicons'}},
     {
         'neovim/nvim-lspconfig',
@@ -26,6 +32,10 @@ local plugins = {
         config = 'require [[config/telescope]]',
         requires = {'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim'}
     }, {
+        'nvim-lualine/lualine.nvim',
+        requires = {'kyazdani42/nvim-web-devicons', opt = true},
+        config = 'require [[config/lualine]]'
+    }, {
         'nvim-treesitter/nvim-treesitter',
         config = 'require [[config/treesitter]]',
         requires = {'p00f/nvim-ts-rainbow', 'romgrk/nvim-treesitter-context'}
@@ -35,7 +45,8 @@ local plugins = {
         requires = {
             {'guns/vim-sexp', ft = {'clojure', 'scheme', 'racket', 'lisp'}}
         }
-    }, {'tpope/vim-speeddating'}, {'tpope/vim-surround'},
+    }, {'tpope/vim-fugitive'}, {'tpope/vim-rhubarb'}, {'tpope/vim-sleuth'},
+    {'tpope/vim-speeddating'}, {'tpope/vim-surround'},
     {'wbthomason/packer.nvim', opt = true},
     {'williamboman/mason.nvim', config = 'require [[config/mason]]'}, {
         'williamboman/mason-lspconfig.nvim',
