@@ -2,7 +2,7 @@ vim.cmd [[packadd packer.nvim]]
 local packer = require('packer')
 
 local plugins = {
-    {
+    {'b0o/schemastore.nvim'}, {
         "hrsh7th/nvim-cmp",
         requires = {
             "hrsh7th/cmp-buffer", "hrsh7th/cmp-nvim-lsp",
@@ -40,7 +40,8 @@ local plugins = {
         'nvim-treesitter/nvim-treesitter',
         config = 'require [[config/treesitter]]',
         requires = {'p00f/nvim-ts-rainbow', 'romgrk/nvim-treesitter-context'}
-    }, {'tpope/vim-commentary'}, {'tpope/vim-repeat'}, {
+    }, {'tikhomirov/vim-glsl'}, {'tomlion/vim-solidity'},
+    {'tpope/vim-commentary'}, {'tpope/vim-repeat'}, {
         'tpope/vim-sexp-mappings-for-regular-people',
         ft = {'clojure', 'scheme', 'racket', 'lisp'},
         requires = {
