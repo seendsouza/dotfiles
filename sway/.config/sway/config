@@ -206,11 +206,14 @@ bindcode 122 exec pamixer -d 5
 bindcode 123 exec pamixer -i 5
 
 # Running programs
-exec --no-startup-id ~/.config/sway/nm-applet.sh &
-exec --no-startup-id ~/.config/sway/pulseaudio.sh &
-exec --no-startup -id ~/.config/sway/syncthing.sh &
-exec_always --no-startup-id gammastep
-exec_always --no-startup-id swaybg --image ~/Pictures/bg.jpg
+exec ~/.config/sway/nm-applet.sh &
+# exec ~/.config/sway/pulseaudio.sh &
+exec ~/.config/sway/syncthing.sh &
+exec_always gammastep
+exec_always swaybg --image ~/Pictures/bg.jpg
+exec swayidle -w \
+	timeout 1805 'swaymsg "output * dpms off"' \
+	resume 'swaymsg "output * dpms on"'
 # Add:
 # swayidle -w
 #       timeout 300 'swaylock -f -c 000000' 
@@ -243,13 +246,27 @@ workspace 17 output eDP-1
 workspace 18 output eDP-1
 workspace 19 output eDP-1
 workspace 20 output eDP-1
+workspace 21 output HDMI
 
 # browser pop-ups
 for_window [window_role="pop-up"] floating enable
 for_window [class="Discord"] floating enable
 
+for_window [class=".*"] border pixel 2
+gaps inner 10
+gaps outer 1
+
 smart_gaps on
-smart_borders off
+smart_borders on
+smart_borders no_gaps
+
+# colour of border, background, text, indicator, and child_border
+client.focused          #5C73F2 #5C73F2 #D8F2F0 #5C73F2 #5C73F2
+client.focused_inactive #172940 #172940 #D8F2F0 #172940 #172940
+client.unfocused        #172940 #172940 #D8F2F0 #172940 #172940
+client.placeholder      #172940 #172940 #D8F2F0 #172940 #172940
+client.urgent           #F21B54 #F21B54 #D8F2F0 #F21B54 #F21B54
+client.background       #172940
 
 include /etc/sway/config.d/*
 
