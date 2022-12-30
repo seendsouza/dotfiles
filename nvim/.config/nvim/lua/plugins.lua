@@ -14,8 +14,7 @@ local plugins = {
         run = function() vim.fn["mkdp#util#install"]() end
     },
     {'junegunn/goyo.vim', cmd = {'Goyo'}, requires = {'junegunn/limelight.vim'}},
-    {'junegunn/rainbow_parentheses.vim'}, {'junegunn/vim-easy-align'},
-    {'lervag/vimtex'},
+    {'junegunn/vim-easy-align'}, {'lervag/vimtex'},
     {'lewis6991/gitsigns.nvim', config = 'require [[config/gitsigns]]'},
     {'liuchengxu/vim-which-key', config = 'require [[config/which-key]]'},
     {'lukas-reineke/indent-blankline.nvim'},
