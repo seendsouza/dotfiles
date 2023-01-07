@@ -75,7 +75,7 @@ end
 DEFAULT_CONFIG_SERVERS = {
     'bashls', 'clangd', 'clojure_lsp', 'cmake', 'cssls', 'dockerls', 'gopls',
     'hls', 'html', 'jdtls', 'jedi_language_server', 'jsonls',
-    'kotlin_language_server', 'nimls', 'rust_analyzer', 'solargraph', 'sqlls',
+    'kotlin_language_server', 'nimls', 'rust_analyzer', 'solargraph', 'solc', 'sqlls',
     'terraformls', 'texlab', 'tsserver', 'vimls', 'vuels', 'yamlls'
 }
 
