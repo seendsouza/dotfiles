@@ -75,7 +75,7 @@ end
 DEFAULT_CONFIG_SERVERS = {
     'bashls', 'clangd', 'clojure_lsp', 'cmake', 'cssls', 'dockerls', 'gopls',
     'hls', 'html', 'jdtls', 'jedi_language_server', 'jsonls',
-    'kotlin_language_server', 'nimls', 'rust_analyzer', 'solargraph', 'solc', 'sqlls',
+    'kotlin_language_server', 'nimls', 'rust_analyzer', 'solargraph', 'solidity', 'sqlls',
     'terraformls', 'texlab', 'tsserver', 'vimls', 'vuels', 'yamlls'
 }
 
@@ -87,7 +87,7 @@ for _, lsp in ipairs(DEFAULT_CONFIG_SERVERS) do
     }
 end
 
-lspconfig['sumneko_lua'].setup {
+lspconfig['lua_ls'].setup {
     cmd = {"lua-language-server"},
     init_options = {documentFormatting = false},
     on_attach = on_attach,
