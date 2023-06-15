@@ -1,6 +1,12 @@
+require 'config/lsp/servers'
+
 local options = {
-  automatic_installation = true
+  ensure_installed = DEFAULT_CONFIG_SERVERS
 }
+table.insert(options.ensure_installed, 'lua_ls')
 
+require("mason").setup()
+local registry = require("mason-registry")
+registry.refresh()
+require('mason-lspconfig').setup(options)
 
-require("mason").setup(options)

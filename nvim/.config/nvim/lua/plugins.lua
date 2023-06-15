@@ -21,11 +21,6 @@ local plugins = {
     {'j-hui/fidget.nvim', config = 'require [[config/fidget]]'},
     {'jose-elias-alvarez/null-ls.nvim'},
     {'kyazdani42/nvim-tree.lua', requires = {'kyazdani42/nvim-web-devicons'}},
-    {
-        'neovim/nvim-lspconfig',
-        config = 'require [[config/lsp]]',
-        requires = {'nvim-lua/lsp-status.nvim'}
-    },
     {'norcalli/nvim-colorizer.lua', config = 'require [[colorizer]].setup()'},
     {
         'nvim-lua/telescope.nvim',
@@ -49,9 +44,10 @@ local plugins = {
     }, {'tpope/vim-fugitive'}, {'tpope/vim-rhubarb'}, {'tpope/vim-sleuth'},
     {'tpope/vim-speeddating'}, {'tpope/vim-surround'},
     {'wbthomason/packer.nvim', opt = true},
-    {'williamboman/mason.nvim', config = 'require [[config/mason]]'}, {
-        'williamboman/mason-lspconfig.nvim',
-        config = 'require [[config/mason_lspconfig]]'
+    {'williamboman/mason.nvim', config = 'require [[config/mason]]', requires = {'williamboman/mason-lspconfig.nvim' }}, {
+        'neovim/nvim-lspconfig',
+        config = 'require [[config/lsp]]',
+        requires = {'nvim-lua/lsp-status.nvim'}
     }
 }
 

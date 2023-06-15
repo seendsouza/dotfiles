@@ -1,3 +1,4 @@
+require 'config/lsp/servers'
 local lsp_status = require('lsp-status')
 local lspconfig = require('lspconfig')
 local cmp_nvim_lsp = require('cmp_nvim_lsp')
@@ -52,6 +53,7 @@ local attach_hook = function(status_callback)
     end
 end
 
+
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 local lsp_formatting = function(bufnr)
     vim.lsp.buf.format({
@@ -72,12 +74,8 @@ local on_attach = function(client, bufnr)
     end
 end
 
-DEFAULT_CONFIG_SERVERS = {
-    'bashls', 'clangd', 'clojure_lsp', 'cmake', 'cssls', 'dockerls', 'gopls',
-    'hls', 'html', 'jdtls', 'jedi_language_server', 'jsonls',
-    'kotlin_language_server', 'nimls', 'rust_analyzer', 'solargraph', 'solidity', 'sqlls',
-    'terraformls', 'texlab', 'tsserver', 'vimls', 'vuels', 'yamlls'
-}
+
+
 
 for _, lsp in ipairs(DEFAULT_CONFIG_SERVERS) do
     lspconfig[lsp].setup {
