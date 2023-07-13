@@ -9,7 +9,8 @@ local plugins = {
             'hrsh7th/cmp-nvim-lua', 'octaltree/cmp-look', 'hrsh7th/cmp-path',
             'hrsh7th/cmp-calc', 'f3fora/cmp-spell', 'hrsh7th/cmp-emoji'
         }
-    }, {
+    }, {'folke/zen-mode.nvim'}, {'folke/trouble.nvim', requires = {'nvim-tree/nvim-web-devicons'}},
+    {'github/copilot.vim'}, {
         'iamcco/markdown-preview.nvim',
         run = function() vim.fn["mkdp#util#install"]() end
     },
@@ -18,22 +19,24 @@ local plugins = {
     {'lewis6991/gitsigns.nvim', config = 'require [[config/gitsigns]]'},
     {'liuchengxu/vim-which-key', config = 'require [[config/which-key]]'},
     {'lukas-reineke/indent-blankline.nvim'},
-    {'j-hui/fidget.nvim', config = 'require [[config/fidget]]'},
+    {'j-hui/fidget.nvim', config = 'require [[config/fidget]]', tag = 'legacy'},
     {'jose-elias-alvarez/null-ls.nvim'},
-    {'kyazdani42/nvim-tree.lua', requires = {'kyazdani42/nvim-web-devicons'}},
+    {'kyazdani42/nvim-tree.lua', requires = {'nvim-tree/nvim-web-devicons'}},
+    {'mbbill/undotree'},
     {'norcalli/nvim-colorizer.lua', config = 'require [[colorizer]].setup()'},
+    {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'},
     {
         'nvim-lua/telescope.nvim',
         config = 'require [[config/telescope]]',
         requires = {'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim'}
     }, {
         'nvim-lualine/lualine.nvim',
-        requires = {'kyazdani42/nvim-web-devicons', opt = true},
+        requires = {'nvim-tree/nvim-web-devicons', opt = true},
         config = 'require [[config/lualine]]'
     }, {
         'nvim-treesitter/nvim-treesitter',
         config = 'require [[config/treesitter]]',
-        requires = {'p00f/nvim-ts-rainbow', 'romgrk/nvim-treesitter-context'}
+        requires = {'p00f/nvim-ts-rainbow', 'romgrk/nvim-treesitter-context', 'nvim-treesitter/playground'}
     }, {'tikhomirov/vim-glsl'}, {'tomlion/vim-solidity'},
     {'tpope/vim-commentary'}, {'tpope/vim-repeat'}, {
         'tpope/vim-sexp-mappings-for-regular-people',

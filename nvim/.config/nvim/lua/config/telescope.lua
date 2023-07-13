@@ -1,7 +1,14 @@
--- totally optional to use setup
 require('telescope').setup {
     defaults = {
-        shorten_path = false -- currently the default value is true
+        shorten_path = false
+    },
+    extensions = {
+        fzf = {
+            fuzzy = true,
+            override_generic_sorter = true,
+            override_file_sorter = true,
+            case_mode = "smart_case",
+        }
     }
 }
 local set_keymap = vim.api.nvim_set_keymap
@@ -13,3 +20,5 @@ set_keymap('n', '<C-S-p>', "<cmd>lua require'telescope.builtin'.live_grep{}<CR>"
 set_keymap('n', 'gr',
            "<cmd>lua require'telescope.builtin'.lsp_references{ shorten_path = true }<CR>",
            opts_but_silent)
+
+require('telescope').load_extension('fzf')
