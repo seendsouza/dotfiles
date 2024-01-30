@@ -36,7 +36,7 @@ local plugins = {
     }, {
         'nvim-treesitter/nvim-treesitter',
         config = 'require [[config/treesitter]]',
-        requires = {'p00f/nvim-ts-rainbow', 'romgrk/nvim-treesitter-context', 'nvim-treesitter/playground'}
+        requires = {'hiphish/rainbow-delimiters.nvim', 'romgrk/nvim-treesitter-context', 'nvim-treesitter/playground'}
     }, {'tikhomirov/vim-glsl'}, {'tomlion/vim-solidity'},
     {'tpope/vim-commentary'}, {'tpope/vim-repeat'}, {
         'tpope/vim-sexp-mappings-for-regular-people',
