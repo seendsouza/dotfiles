@@ -7,7 +7,11 @@ cd ~
 xcode-select --install
 
 # Install homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+# /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> ~/.zprofile
+#     eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 brew update
 
@@ -18,95 +22,59 @@ brew install neofetch
 brew install htop
 brew install ripgrep
 brew install fd
-# brew cask install google-chrome
-# brew cask install docker
+brew install jq
+brew install nvm
+brew install sqlite
+brew install zstd
+brew install cmake
+brew install awscli
+brew install freetype
+brew install gcc
+brew install curl
+brew instsall kubernetes-cli
+brew install k9s
+brew install tree
+brew install fzf
+brew install ruff
+
 brew install --cask insomnia
 brew install --cask kitty
+brew install --cask visual-studio-code
+brew install --cask dbeaver
+brew install --cask iina
+brew install --cask stats
+brew install --cask the-unarchiver
+brew install --cask raycast
 
-git config --global user.email "0xseen64.com"
+
+git config --global user.email "0xseen64@gmail.com"
 git config --global user.name "Sean D'Souza"
 
-# Languages
-# curl -s "https://get.sdkman.io" | bash
-# sdk install java 14.0.1-open
-# brew install clojure/tools/clojure
+: '
+Manual steps
 
-brew install nvm
-nvm install stable
-nvm use stable
-# npm install -g source-map support
+Install:
+- Arc
 
-# sudo mkdir /Applications/clojure
-# sudo curl -O https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein
-# sudo chmod +x lein
-cd ~
-
-# brew install pyenv
-# # TODO: pyenv virtualenv install
-# pyenv install 3.7.7
-# pyenv global 3.7.7
-# pyenv virtualenv 3.7.7 py3nvim
-# pyenv activate py3nvim
-# pip install py3nvim
-# pyenv deactivate
-# pyenv install 2.7.14
-# pyenv global 2.7.14
-# pyenv virtualenv 2.7.14 py3nvim
-# pyenv activate py3nvim
-# pip install py3nvim
-# gem install neovim
-# npm i -g neovim
-# pyenv deactivate
-# brew install ruby
-# sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-
-# pip install --user --upgrade autopep8
-npm i -g prettier
-# TODO: update google_java_executable with the one in the path
-# TODO: put zprint on path and change zprint_executable
-
-#echo export PATH="$PATH:/Applications/clojure:/usr/local/opt/ruby/bin” >> .bash_profile
-
-:'
-Copy kitty, bashrc, neovim configs manually
-'
-
-:'
-MANUAL STEPS
-
-Install Hasklig
-
-System Preferences > Trackpad > Scroll & Zoom
-Uncheck scroll direction
-
-System Preferences > Date and Time
-Check Display time with seconds
-Check Use 24 hour clock
-Check Show date
-
-Dock:
-Size to small
-Turn on magnification
-Remove icons
-
-Change Avatar
+Settings:
+- Copy kitty, neovim configs manually
+- Under "Desktop & Dock" check "Minimize window into application icon"
+- Under "Desktop & Dock" uncheck "Show suggested and recent apps in Dock"
+- Under "Keyboard" > "Text Input" > <your keyboard> > uncheck "Correct spelling automatically"
+- Under "Keyboard" > "Text Input" > <your keyboard> > uncheck "Capitalize words automatically"
+- Under "Keyboard" > "Text Input" > <your keyboard> > uncheck "Add period with double-space"
+- Under "General" > "Date & Time" > check "24-hour time"
+- Under "General" > "Date & Time" > check "Show 24-hour time on Lock Screen"
 
 Finder:
-Macintosh HD to locations
-Home /Users/edsosea
-screenshots /Users/edsosea/Pictures/screenshots
+- Add folder Screenshots to Macintosh HD > Users > sean > Pictures
+- Add to Favorites:
+  - Macintosh HD > Users > sean
+  - Macintosh HD > Users > sean > Pictures
+  - Macintosh HD > Users > sean > Pictures > Screenshots
+  - Macintosh HD > Users > sean > Downloads
 
-'
-
-:'
-yabai:
-Mission Control -> System Preferences "Display have separate spaces" enabled
-"Automatically rearrange Spaces based on most recent use" disabled
-
-Disable System Integrity Protection
-Install yabai
-Confiugre yabai
-Install skhd
-Configure with skhd
+Screenshots:
+1. Cmd + Shift + 5
+2. Options > Save to > Other location > Screenshots folder location
 '
